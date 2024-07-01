@@ -1,30 +1,39 @@
-.App {
-  text-align: center;
+body {
+  font-family: sans-serif; /* 기본 폰트 설정 */
 }
 
+/* 모든 영어 텍스트에 Adobe 폰트를 적용 */
+:lang(en), :lang(en) * {
+  font-family: "kudryashev-d-contrast-sans", sans-serif; /* Adobe Fonts에서 활성화한 실제 폰트 이름으로 대체하세요 */
+}
+
+/* 나머지 스타일 */
 .header {
-  background-color: #cccccc; /* 회색 배경 */
-  padding: 20px; /* 박스 내부 여백 */
-  text-align: center; /* 텍스트 가운데 정렬 */
-  position: fixed; /* 최상단에 고정 */
+  background-color: #cccccc;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* 전체 너비 */
-  box-shadow: 0 4px 2px -2px gray; /* 박스 하단 그림자 */
+  width: 100%;
+  box-shadow: 0 4px 2px -2px gray;
   display: flex;
+  justify-content: center;
   align-items: center;
+  z-index: 1001;
 }
 
 .sub-header {
-  background-color: #cccccc; /* 회색 배경 */
-  padding: 20px; /* 박스 내부 여백 */
-  text-align: center; /* 텍스트 가운데 정렬 */
+  background-color: #cccccc;
+  padding: 20px;
+  text-align: center;
   top: 0;
   left: 0;
-  width: 100%; /* 전체 너비 */
-  box-shadow: 0 4px 2px -2px gray; /* 박스 하단 그림자 */
+  width: 100%;
+  box-shadow: 0 4px 2px -2px gray;
   display: flex;
   align-items: center;
+  margin-top: 80px;
 }
 
 .close-button {
@@ -43,7 +52,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  margin-right: 20px;
+  position: absolute;
+  left: 20px;
 }
 
 .menu {
@@ -83,15 +93,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
+  margin-top: 120px;
 }
 
 .product-card {
-  flex: 0 0 48%; /* 48%를 사용하여 간격을 고려한 두 개의 카드 배치 */
+  flex: 0 0 48%;
   box-sizing: border-box;
   margin-bottom: 20px;
   padding: 10px;
-  /* border: 1px solid #ccc;
-  border-radius: 8px; */
   text-align: center;
 }
 
@@ -105,4 +114,134 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+}
+
+.product-detail-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  padding-top: 80px;
+}
+
+.product-detail-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.product-detail-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.product-detail-image-container {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.product-detail-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-detail-info {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.product-detail-info h2 {
+  margin-top: 20px;
+}
+
+.product-detail-info p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.product-detail-info .price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-detail-info .details {
+  text-align: left;
+  margin: 20px 0;
+}
+
+.product-detail-info .details ul,
+.product-detail-info .size-select ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-detail-info .size-select {
+  margin-bottom: 20px;
+}
+
+.product-detail-info .actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.product-detail-info .actions button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.product-detail-info .actions button:hover {
+  background-color: #555;
+}
+
+/* 미디어 쿼리 */
+/* 화면 너비가 768px 이상일 때 적용 */
+@media (min-width: 768px) {
+  .product-detail-content {
+    flex-direction: row;
+  }
+  .product-detail-image-container,
+  .product-detail-info {
+    flex: 1;
+    max-width: 50%;
+  }
+  .product-detail-image-container {
+    padding-right: 20px;
+  }
+  .product-detail-info {
+    text-align: left;
+    padding-left: 20px;
+  }
+}
+
+/* 화면 너비가 767px 이하일 때 적용 */
+@media (max-width: 767px) {
+  .product-detail-content {
+    flex-direction: column;
+  }
+  .product-detail-info {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+/* 홈 페이지 푸터 스타일 */
+.footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  text-align: center;
 }
