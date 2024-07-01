@@ -361,12 +361,12 @@ function ProductDetail() {
           </div>
           <div className="product-detail-info">
             <h2>{product.name}</h2>
-            <p className="price">{product.price}</p>
+            <p className="price no-custom-font">{product.price}</p>
             <div className="details">
               <h3>DETAILS</h3>
               <ul>
                 {product.description.split('\n').map((line, index) => (
-                  <li key={index}>{line.trim()}</li>
+                  <li key={index} className="no-custom-font">{line.trim()}</li>
                 ))}
               </ul>
             </div>
@@ -374,7 +374,7 @@ function ProductDetail() {
               <h3>SIZE</h3>
               <ul>
                 {product.size.split('\n').map((line, index) => (
-                  <li key={index}>{line.trim()}</li>
+                  <li key={index} className="no-custom-font">{line.trim()}</li>
                 ))}
               </ul>
             </div>
@@ -388,6 +388,8 @@ function ProductDetail() {
     </div>
   );
 }
+
+
 
 function App() {
   return (

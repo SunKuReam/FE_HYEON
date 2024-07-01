@@ -2,35 +2,45 @@ body {
   font-family: sans-serif; /* 기본 폰트 설정 */
 }
 
-/* 모든 영어 텍스트에 Adobe 폰트를 적용 */
-:lang(en), :lang(en) * {
-  font-family: "kudryashev-d-contrast-sans", sans-serif; /* Adobe Fonts에서 활성화한 실제 폰트 이름으로 대체하세요 */
+/* 모든 영어 텍스트에 Adobe 폰트를 적용, 숫자는 제외 */
+:lang(en):not(.no-custom-font), :lang(en):not(.no-custom-font) *:not(.no-custom-font) {
+  font-family: "kudryashev-d-excontrast-sans", sans-serif; /* Adobe Fonts에서 활성화한 실제 폰트 이름으로 대체하세요 */
 }
 
-/* 나머지 스타일 */
+/* 숫자는 기본 폰트로 설정 */
+.no-custom-font {
+  font-family: sans-serif !important;
+}
+
+/* 상단 헤더 스타일 */
 .header {
-  background-color: #cccccc;
+  background-color: white; /* 흰색 배경 */
   padding: 20px;
   text-align: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 4px 2px -2px gray;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1001;
 }
 
+.header .home-link {
+  color: black; /* 검정색 글씨 */
+  text-decoration: none;
+  font-size: 2em; /* 크기를 좀 더 크게 설정 */
+}
+
 .sub-header {
-  background-color: #cccccc;
+  background-color: white; /* 흰색 배경 */
+  color: black; /* 검정색 글씨 */
   padding: 20px;
   text-align: center;
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 4px 2px -2px gray;
   display: flex;
   align-items: center;
   margin-top: 80px;
@@ -40,7 +50,7 @@ body {
   font-size: 24px;
   background: none;
   border: none;
-  color: white;
+  color: black;
   cursor: pointer;
   position: absolute;
   top: 10px;
@@ -54,6 +64,7 @@ body {
   cursor: pointer;
   position: absolute;
   left: 20px;
+  color: black;
 }
 
 .menu {
@@ -114,6 +125,7 @@ body {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: black; /* 검정색 글씨 */
 }
 
 .product-detail-page {
@@ -135,6 +147,8 @@ body {
   flex-direction: column;
   width: 100%;
   max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .product-detail-image-container {
@@ -149,30 +163,29 @@ body {
   height: auto;
 }
 
-.product-detail-info {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 .product-detail-info h2 {
   margin-top: 20px;
-}
-
-.product-detail-info p {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 115px; /* 상품명과 가격 간격 늘리기 */
 }
 
 .product-detail-info .price {
-  font-size: 24px;
+  font-size: 18px; /* 크기 줄이기 */
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 0; /* 가격과 DETAILS 간격 줄이기 */
 }
 
 .product-detail-info .details {
-  text-align: left;
-  margin: 20px 0;
+  margin-top: 0; /* 가격과 DETAILS 간격 줄이기 */
+}
+
+.product-detail-info .details,
+.product-detail-info .size-select {
+  text-align: left; /* 왼쪽 정렬 */
+  font-size: 14px; /* 크기 줄이기 */
+  margin: 20px 0; /* 간격 줄이기 */
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
 }
 
 .product-detail-info .details ul,
@@ -180,10 +193,13 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  font-size: 12px; /* 한 단계 더 작은 글자 크기 */
 }
 
-.product-detail-info .size-select {
-  margin-bottom: 20px;
+.product-detail-info .details li,
+.product-detail-info .size-select li {
+  padding-left: 10px; /* 동일한 시작 지점 */
+  margin-bottom: 5px; /* 항목 간 간격 */
 }
 
 .product-detail-info .actions {
@@ -235,6 +251,11 @@ body {
   .product-detail-info {
     text-align: center;
     padding-left: 0;
+  }
+  .product-detail-info .details,
+  .product-detail-info .size-select {
+    display: block;
+    width: 100%;
   }
 }
 
